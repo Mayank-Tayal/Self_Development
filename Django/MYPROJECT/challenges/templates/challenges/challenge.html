@@ -7,6 +7,8 @@
 
 
 {% block content %}
+    {% include  "challenges\include\header.html" %}
+
     <h1>{{month}}'s Challenge</h1>
     {% if output is not None %}
         <p>{{output}}</p>
