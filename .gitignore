@@ -39,3 +39,7 @@ Thumbs.db
 
 # Node / frontend (if any)
 node_modules/
+
+
+# text file
+*.txt
