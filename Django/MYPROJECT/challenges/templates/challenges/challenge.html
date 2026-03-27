@@ -1,9 +1,11 @@
 {% extends "base.html" %}
-
-
+{% load static %}
 
 {% block title %}{{month}}'s Challenges{% endblock%}
 
+{% block css %}
+    <link rel="stylesheet" href="{% static "challenges/challenge.css" %}">
+{% endblock  %} 
 
 
 {% block content %}
