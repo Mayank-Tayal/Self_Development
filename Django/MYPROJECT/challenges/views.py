@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse,HttpResponseNotFound,HttpResponseRedirect
+from django.http import HttpResponse,HttpResponseNotFound,HttpResponseRedirect,Http404
 from django.urls import reverse
 from django.template.loader import render_to_string
 # Create your views here.
@@ -40,7 +40,12 @@ def monthly_challenges(request, month):
             "month" : month.capitalize()
         })
     except:
-        return HttpResponseNotFound("Not supported")
+        # 1 Method for error templates
+        # return HttpResponseNotFound(render_to_string("404.html"))
+        
+        # 2 Method for error templates 
+        # (you need to make debug = false in settings.py but only when pushing in production)
+        raise Http404("MY CUSTOM MESSAGE")
 
 
 
