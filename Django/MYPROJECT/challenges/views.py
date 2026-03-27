@@ -16,7 +16,7 @@ metadata = {
     "september": "9th Month",
     "october": "10th Month",
     "november": "11th Month",
-    "december": "12th Month",
+    "december": None,
 }
 
 
