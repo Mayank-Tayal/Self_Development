@@ -12,10 +12,10 @@
 <body>
     <header id = "main-navigation">
         <h1>
-            <a href="">Mayank Blog</a>
+            <a href="{% url "staring-page" %}">Mayank Blog</a>
         </h1>
         <nav>
-            <a href="">All Posts</a>
+            <a href="{% url "posts-page" %}">All Posts</a>
         </nav>
     </header>
     {% block body %}{% endblock %}
