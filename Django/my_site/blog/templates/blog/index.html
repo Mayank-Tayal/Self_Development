@@ -8,18 +8,12 @@
 
 
 {% block styles %}
+    <link rel="stylesheet" href="{% static "blog/post.css" %}">
     <link rel="stylesheet" href="{% static "blog/index.css" %}">
 {% endblock styles %}
 
 {% block body %}
-    <header id = "main-navigation">
-        <h1>
-            <a href="">Mayank Blog</a>
-        </h1>
-        <nav>
-            <a href="">All Posts</a>
-        </nav>
-    </header>
+    
     <section id="welcome">
         <header>
             <img src="{% static "blog\images\me.jpeg" %}" alt="Mayank -The Author of this blog">
@@ -33,19 +27,7 @@
     <section id = "latest-posts">
         <h2>My Lastest Thoughts</h2>
         <ul>
-            <li>
-                <article class = "post">
-                    <a href="">
-                        <img src="{% static "blog\images\mountains.jpg" %}" alt="Mountian Hiking">
-                        <div class = "post__content">
-                            <h3>Mountian Hiking</h3>
-                            <p>
-                                There's nothing like views you get when hiking moutain's! And I wasn't even prepared for what happened whilst I was enjoyingthe view!
-                            </p>
-                        </div>
-                    </a>
-                </article>
-            </li>
+            {% include "blog/includes/post.html" %}
         </ul>
     </section>
     <section id="about">

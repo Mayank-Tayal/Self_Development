@@ -1,3 +1,4 @@
+
 #welcome {
   background: linear-gradient(to right top, #6305dd, #390281);
   padding: 6rem 12%;
@@ -52,34 +53,6 @@
   padding: 0;
   display: flex;
   gap: 1rem;
-  transition: transform 0.5s ease;
-}
-#latest-posts ul a {
-  color: black;
-  display: flex;
-  flex-direction: column;   /* 🔥 KEY FIX */
-  align-items: center;      /* center horizontally */
-  text-align: center;       /* center text */
-  text-decoration: none;
-}
-
-#latest-posts ul a:hover,
-#latest-posts ul a:active{
-  color: #ffffff;
-}
-
-
-
-.post {
-  border-radius: 12px;
-  padding: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.post:hover {
-  transform: scale(1.05);
-  background-color: #0d0db8;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 #latest-posts li {
