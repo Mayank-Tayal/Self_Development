@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinLengthValidator,MaxValueValidator
+from django.urls import reverse
 # Create your models here.
 
 
@@ -13,7 +14,9 @@ class Book(models.Model):
     isBestSelling = models.BooleanField(default=False)
     # Do not need to give ID as django automatically create ID with auto-incrementing value
      
-
+    def get_absolute_url(self):
+        return reverse("book-detail", args=[self.id])
+    
 
     def __str__(self):
        return f"{self.title} ({self.rating})"

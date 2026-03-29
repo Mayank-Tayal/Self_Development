@@ -9,7 +9,8 @@ All Books
 {% block content %}
     <ul>
         {% for book in books %}
-            <li>{{ book.title }}  (Rating{{book.rating}})</li>
-        {% endfor %}
+            {% comment %} <li><a href="{% url "book-detail" book.id %}">{{ book.title }}  (Rating{{book.rating}})</a></li> {% endcomment %}
+            <li><a href="{{ book.get_absolute.url }}">{{ book.title }}  (Rating{{book.rating}})</a></li>        
+            {% endfor %}
     </ul>
 {% endblock content %}
