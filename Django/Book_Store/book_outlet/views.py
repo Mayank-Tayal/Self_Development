@@ -10,12 +10,13 @@ def index(request):
         "books": all_books,
     })
 
-def book_detail(request,id):
+def book_detail(request,slug):
     # try:
     #     book = Book.objects.get(pk=id) #instead of pk can use id as a parameter automaticallu added by django and it is this parameter that is primary key
     # except:
     #     raise Http404()
-    book = get_object_or_404(Book,pk=id)#shortcut for code commented code block
+    # book = get_object_or_404(Book,pk=id)#shortcut for code commented code block
+    book = get_object_or_404(Book, slug=slug)
     return render(request,"book_outlet/book_detail.html",{
         "title":book.title,
         "author":book.author,
