@@ -5,6 +5,10 @@ from django.utils.text import slugify
 # Create your models here.
 
 
+class Author(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+
 
 class Book(models.Model):
     # Do not need to give ID as django automatically create ID with auto-incrementing value
@@ -12,7 +16,7 @@ class Book(models.Model):
     rating = models.IntegerField(
         validators=[MinLengthValidator(1), MaxValueValidator(5)]
         )
-    author = models.CharField(null=True, max_length=100)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE,  null=True)
     isBestSelling = models.BooleanField(default=False)
     slug = models.SlugField(default="", null=False,blank=True, db_index=True)
     # editable=False removes the field, in admin readonly allows to show but not able to edit
