@@ -16,7 +16,7 @@ class Book(models.Model):
     rating = models.IntegerField(
         validators=[MinLengthValidator(1), MaxValueValidator(5)]
         )
-    author = models.ForeignKey(Author, on_delete=models.CASCADE,  null=True)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE,  null=True, related_name="books")
     isBestSelling = models.BooleanField(default=False)
     slug = models.SlugField(default="", null=False,blank=True, db_index=True)
     # editable=False removes the field, in admin readonly allows to show but not able to edit
