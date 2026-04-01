@@ -4,6 +4,17 @@ from django.urls import reverse
 from django.utils.text import slugify
 # Create your models here.
 
+class Country(models.Model):
+    name = models.CharField(max_length=80)
+    code = models.CharField( max_length=2)
+
+    def __str__(self):
+        return f'{self.name}'
+    
+    class Meta:
+        verbose_name_plural = "Country List"
+
+
 class Address(models.Model):
     street = models.CharField(max_length=80)
     postal_code = models.CharField(max_length=6)
@@ -37,10 +48,14 @@ class Book(models.Model):
         )
     author = models.ForeignKey(Author, on_delete=models.CASCADE,  null=True, related_name="books")
     isBestSelling = models.BooleanField(default=False)
+    published_country = models.ManyToManyField(Country, )
     slug = models.SlugField(default="", null=False,blank=True, db_index=True)
     # editable=False removes the field, in admin readonly allows to show but not able to edit
     # editable=False needs to be removed for use of prepopulated in admin
     # blank=True allows field to be empty
+
+
+
 
     def get_absolute_url(self):
         return reverse("book-detail", args=[self.slug])
