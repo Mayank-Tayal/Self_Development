@@ -13,17 +13,18 @@
 {% block body %}
 <section id="summary">
     <h2>{{title}}</h2>
+    <div>
+            {% for  tag in tags %}
+                <span class='tag'>#{{tag.caption}}</span>
+            {% endfor %}
+    </div>
     <article>
         <img src="{% static "blog/images/"|add:image %}" alt="{{title}}">
-        <address>By {{author|title}}</address>
+        <address>By <a href="mailto:{{author.e_mail_address}}">{{author|title}}</a></address>
         <div>
             Last updated on <time> {{date|date:"d M Y"}} </time>
         </div>
-        <div>
-            {% for  tag in tags %}
-                #{{tag.caption}}
-            {% endfor %}
-        </div>
+        
     </article>
 </section>
 <main>
