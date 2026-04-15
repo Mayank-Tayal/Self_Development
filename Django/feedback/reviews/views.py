@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 
 
 def review(request):
-    if request == "POST":
+    if request.method == "POST":
         entered_username = request.POST['username']
         print(entered_username)
         return HttpResponseRedirect("/thank-you")
