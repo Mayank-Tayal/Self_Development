@@ -3,21 +3,22 @@ from django.http import HttpResponseRedirect
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import FormView  
+from django.views.generic.edit import FormView, CreateView
 from .models import Review
 from .forms import ReviewForm
 
 # Create your views here.
 
-class ReviewView(FormView):
+# DeleteView - Can help with deleting data
+# UpdateView - Can help with updating data
+
+class ReviewView(CreateView):
+    model = Review 
+    # no need for form_class when you only need to configure form fields,,, 
+    # but cannot adjust labels and errors
     form_class = ReviewForm
     template_name = "reviews/review.html"
     success_url = "/thank-you"
-
-    def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
-    
 
 
 
