@@ -1,12 +1,7 @@
-from django.shortcuts import render
-from django.views import View
+from django.urls import path
 
-# Create your views here.
+from . import views
 
-
-class CreateProfileView(View):
-    def get(self, request):
-        return render(request, "profiles/create_profile.html")
-
-    def post(self, request):
-        pass
+urlpatterns = [
+    path("", views.CreateProfileView.as_view())
+]
