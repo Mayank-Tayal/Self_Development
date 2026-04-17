@@ -122,3 +122,5 @@ STATIC_URL = 'static/'
 MEDIA_ROOT = BASE_DIR / "uploads"
 
 MEDIA_URL ='/user-media/'
+
+# SESSION_COOKIE_AGE = 120 controls how long session hold out here 120 sec
