@@ -10,9 +10,14 @@
     <p>
         {{review.review_text}}
     </p>
-    <form action="/reviews/favourite" method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="review_id" value={{ review.id}}>
-        <button>favourite</button>
-    </form>
+    {% if is_favourite %}
+        <p>This is my favourite!!</p>
+    
+    {% else %}
+        <form action="/reviews/favourite" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="review_id" value={{ review.id}}>
+            <button>favourite</button>
+        </form>
+    {% endif %}
 {% endblock content %}
