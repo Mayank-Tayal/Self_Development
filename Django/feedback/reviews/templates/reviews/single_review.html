@@ -10,5 +10,9 @@
     <p>
         {{review.review_text}}
     </p>
-    <button>favourite</button>
+    <form action="/reviews/favourite" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="review_id" value={{ review.id}}>
+        <button>favourite</button>
+    </form>
 {% endblock content %}
